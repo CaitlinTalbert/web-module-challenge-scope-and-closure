@@ -61,6 +61,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+    
+    Closure is when an inner function reaches into an outer function to grab a value defined in the outer function. Its code that is created that we can use later and pass values down but not back up. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +85,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  Closure is used in this code when dansRoll(); is called, because it reaches outside its scope to find dansRoll, but does not exist within the scope. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  DansRoll will generate a random number between 1 and 6, so the first time the numbers could be 2 and 2, and then next roll could be 1 and 4. 'Dan rolled a' will always be the same, but the numbers will be different. 
+
 c. What is the lexical scope of `newRoll`? 
+
+  NewRoll was created within the function scope, therefor it cannot be accessed later on. 
 
 
 ### Task 3 - Stretch Goals
