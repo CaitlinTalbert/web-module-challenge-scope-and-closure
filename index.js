@@ -112,6 +112,7 @@ Use the getInningScore() function below to do the following:
 function getInningScore(inningcb) {
   
   return {
+    //return an object with a score for home and away that invokes the inningcb function 
     Home: inningcb(), 
     Away: inningcb()
   }
@@ -161,9 +162,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningcb, numInnings) {
+  //create empty array to push results too 
+  const scoreInnings= []; 
+  let homeScore = 0; 
+  let awayScore = 0; 
+  //if else statement 
+  for(let i = 0; i < numInnings; i++){
+    const currentInning = getInningScoreCB(inningcb); 
+    homeScore = homeScore + currentInning.Home
+    awayScore = awayScore + currentInning.Away 
+    scoreInnings.push(`Inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home}`)
+  }
+  if(homeScore === awayScore){
+  scoreInnings.push(`This game will require extra innings: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+  } else {
+    scoreInnings.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+  }
+  return scoreInnings;
 }
+
+console.log('Task 5:', scoreboard(getInningScore, inning, 9)); 
 
 
 
