@@ -91,8 +91,10 @@ function finalScore(inningcb, innings){
   for (let i = 0; i < innings; i++){ 
     homeScore = homeScore + inningcb(); 
     awayScore = awayScore + inningcb(); 
+    //after each inning, update the score of the home and away teams 
   }
   return {
+    //return and object containing the final sore of the innings played, 9 innings in baseball 
     Home: homeScore, 
     Away: awayScore 
   }
@@ -102,16 +104,20 @@ console.log(finalScore(inning, 9));
 
 
 
-
-
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningcb) {
+  
+  return {
+    Home: inningcb(), 
+    Away: inningcb()
+  }
 }
+
+console.log(getInningScore(inning)); 
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
